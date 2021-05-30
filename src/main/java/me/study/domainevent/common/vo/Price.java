@@ -13,10 +13,14 @@ public class Price {
     private final BigDecimal price;
 
     public Price(BigDecimal price) {
+        validate(price);
+        this.price = price;
+    }
+
+    private void validate(BigDecimal price) {
         if (price.compareTo(BigDecimal.ZERO) < 0) {
             throw new IllegalArgumentException("가격은 0보다 크거나 같아야 합니다.");
         }
-        this.price = price;
     }
 
     public Price(int price) {
